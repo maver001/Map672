@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>MAP672 Module 2 Template</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+ <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <style>
+        body { margin: 0; padding: 0; background: black; font-family: sans-serif; color: blue} /* This is laying out the placement, look and color of the first heading*/ h1 { font-size: 5em; color: crimson; margin-left: 100px;} h2 { font-size: 6em; font-family: fantasy; color: darkorchid; margin-left: 250px;} a {color: coral; font-weight: bold; text-decoration: none;} a:hover { text-decoration: underline;} img { margin-left: 25px;} #box {width: 200px; height: 200px; background: white; margin: 25px;} /*the code is width and height of 100px the border-radius is making the circle round the higher the percent the more round*/.circle { width: 100px; height: 100px; background: white; border-radius: 75%; display: inline-block; margin: 0 55px;}
+      <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>   
+    </style>
+</head>
+
+<body>
+<!-- Structured HTML goes within the body tags -->
+    
+    <h1> <p> Blue Eyed Cat</p></h1>
+    <h2>Iam programming</h2>
+    <!-- The href is providing a pathway to the bacon wedsite, for transport when clicked  -->
+    <p>paragraph with link: <a href="https://baconipsum.com">Bacon</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus.</p>
+   <div id="cat"></div>
+    <img src= "https://img1.etsystatic.com/047/0/5340748/il_570xN.730860101_aghv.jpg" alt="Amur Tiger">
+    <p>paragraph with link: <a href="http://www.viewbug.com/photo/62018297">Lorem ipsum</a> dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl.</p>
+    <ul>
+        <li><a href="http://leafletjs.com">Leaf</a></li>
+        <li><a href="http://www.destinationamerica.com/tv-shows/mountain-monsters/mountain-monsters-video/watch-this-insanely-intense-showdown-between-the-bear-beast-and-these-hunters">The Guys</a></li>
+        <li><a href="https://www.flipkey.com/placencia-bungalow-rentals/p1308983/">Good For Me</a></li>
+    </ul>
+    <div id="box"></div> <!-- I guess that by using the <div id> function and CSS code you can create a unquie element on a wedpage in this case box is a 200px blue box -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <script>document.querySelector('h1').innerHTML = 'web mapping is sweet!';</script>
+    <script>var box = document.getElementById('box');</script>
+    <script>box.style.background = '#4d4a9f';</script>
+    <script>var elements = document.getElementsByClassName('circle');</script>
+    <script>for(var i=0; i <= elements.length-1;i++){
+    elements[i].style['border-radius'] = '20%';  
+}</script>
+    <script>box.addEventListener('click', function() {
+    this.style.width = '400px';   
+}); // What this is doing is creating a function, which, when you click on the box the width is changed </script>
+    <script>var newListItem = document.createElement('li');</script>
+    <script>newListItem.innerHTML = "list item 4";</script>
+    <script>document.querySelector('ul').appendChild(newListItem);</script>
+    <script>console.log("At the bottom of this mine lies a big big man Big John");</script>
+    <script></script>
+    <script></script>
+    <script></script>
+    
+    
+    
+        
+        
+    </script>
+    
+</body>
+
+</html>
