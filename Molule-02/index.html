@@ -7,8 +7,51 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <style>
-        body { margin: 0; padding: 0; background: black; font-family: sans-serif; color: blue} /* This is laying out the placement, look and color of the first heading*/ h1 { font-size: 5em; color: crimson; margin-left: 100px;} h2 { font-size: 6em; font-family: fantasy; color: darkorchid; margin-left: 250px;} a {color: coral; font-weight: bold; text-decoration: none;} a:hover { text-decoration: underline;} img { margin-left: 25px;} #box {width: 200px; height: 200px; background: white; margin: 25px;} /*the code is width and height of 100px the border-radius is making the circle round the higher the percent the more round*/.circle { width: 100px; height: 100px; background: white; border-radius: 75%; display: inline-block; margin: 0 55px;}
-      <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>   
+        body { 
+            margin: 0; 
+            padding: 0; 
+            background: black; 
+            font-family: sans-serif; 
+            color: blue} 
+        /* This is laying out the placement, look and color of the first heading*/ 
+        h1 { 
+            font-size: 5em; 
+            color: crimson; 
+            margin-left: 100px;
+        } 
+        h2 { 
+            font-size: 6em; 
+            font-family: fantasy; 
+            color: darkorchid; 
+            margin-left: 250px;
+        } 
+        a {
+            color: coral; 
+            font-weight: bold; 
+            text-decoration: none;
+        } 
+        a:hover { 
+            text-decoration: underline;
+        } 
+        img { 
+            margin-left: 25px;
+        } 
+        #box {
+            width: 200px; 
+            height: 200px; 
+            background: white; 
+            margin: 25px;
+        } 
+        /*the code is width and height of 100px the border-radius is making the circle round the higher the percent the more round*/
+        .circle { 
+            width: 100px; 
+            height: 100px; 
+            background: white; 
+            border-radius: 75%; 
+            display: inline-block; 
+            margin: 0 55px;
+        }
+         
     </style>
 </head>
 
@@ -32,27 +75,28 @@
     <div class="circle"></div>
     <div class="circle"></div>
 
-    <script>document.querySelector('h1').innerHTML = 'web mapping is sweet!';</script>
-    <script>var box = document.getElementById('box');</script>
-    <script>box.style.background = '#4d4a9f';</script>
-    <script>var elements = document.getElementsByClassName('circle');</script>
-    <script>for(var i=0; i <= elements.length-1;i++){
-    elements[i].style['border-radius'] = '20%';  
-}</script>
-    <script>box.addEventListener('click', function() {
-    this.style.width = '400px';   
-}); // What this is doing is creating a function, which, when you click on the box the width is changed </script>
-    <script>var newListItem = document.createElement('li');</script>
-    <script>newListItem.innerHTML = "list item 4";</script>
-    <script>document.querySelector('ul').appendChild(newListItem);</script>
-    <script>console.log("At the bottom of this mine lies a big big man Big John");</script>
-    <script></script>
-    <script></script>
-    <script></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+        document.querySelector('h1').innerHTML = 'web mapping is sweet!';
     
+        var box = document.getElementById('box');
+        box.style.background = '#4d4a9f';
+        var elements = document.getElementsByClassName('circle');
     
+        for(var i=0; i <= elements.length-1;i++){
+            elements[i].style['border-radius'] = '20%';  
+        }
     
+        box.addEventListener('click', function() {
+            this.style.width = '400px';   
+        }); 
+                                                
+        // What this is doing is creating a function, which, when you click on the box the width is changed
+        var newListItem = document.createElement('li');
+        newListItem.innerHTML = "list item 4";
+        document.querySelector('ul').appendChild(newListItem);
         
+        console.log("At the bottom of this mine lies a big big man Big John");        
         
     </script>
     
