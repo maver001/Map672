@@ -47,7 +47,15 @@ while (i < cities.length){
 }
 var temp = 32; if(temp === 32) {console.log('the temperature is freezing');}
 var temp = 33; if(temp === 32) {console.log('the temperature is freezing');}
-else {console.log("thetemperature is NOT 32, but still may be freezing");}    
+else {console.log("thetemperature is NOT 32, but still may be freezing");}  
+ var temp = 33; if(temp <= 32) {console.log("the temperature is freezing");} else if(temp > 32) 
+{console.log("thetemperature is above freezing");} else {console.log("the value of temp must not be a number");}
+for(var i = 0; i <= 10; i++) { if(i === 5) { break;} console.log(i);}
+// it will count up to ten with no break
+var cities = ["Frankfort", "Louisville", "Lexington"]; var testCity = "Louisville";
+for ( var i = 0; i <= cities.length; i++) {if(cities[i] == testCity) {console.log(testCity + " is found in the city Array!");}}
+var cities = ["Frankfort", "Louisville", "Lexington"]; var testCity = "Bowling Green"; for (var i = 0; i <= cities.length; i++) {    if(cities[i] == testCity) {console.log(testCity + " is found in the city Array at index "+ i+ "!");} else {console.log(testCity + " was not found within the Array at index "+ i+ "!");}}
+var years = [ 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015]; for(var i = 0; i <= years.length; i++) { if(years[i] == 2012) { break;} else {console.log(years[i]);}}
 </script>
     
 </body>
