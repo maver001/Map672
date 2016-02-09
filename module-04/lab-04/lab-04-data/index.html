@@ -18,18 +18,24 @@
             background: whitesmoke;
             font-family: Lato, sans-serif;
             color: #0D0000;
+            text-align: center;
         }
         header {
             padding: 6px 10%;
         }
         h1 {
             display: inline-block;
-            margin-right: 20px;
+            
             color: #001323;
+            font-weight: bolder;
+            text-align: center;
+            align-content: center;
         }
         h2 {
             display: inline-block;
             color: #001323;
+            font-weight: bold;
+            text-align: center;
         }
         #map {
             width: 80%;
@@ -51,14 +57,14 @@
 
 <body>
     <header>
-        <h1>Map Title</h1>
-        <h2>Map Subtitle</h2>
+        <p><h1>Miast w Polsce</h1></p>
+    <p><h2>Cities in Poland</h2></p>
     </header>
 
     <div id='map'></div>
 
     <footer>
-        <p>Map authored by YOUR NAME</p>
+        <p>Mark Avery</p>
         <p>Additional information about the data and map goes here.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl. Vestibulum commodo imperdiet lacus, sed facilisis erat placerat sit amet. Nulla consequat malesuada neque eget aliquet. Integer non convallis nisl, gravida ultrices ex. Fusce nec vestibulum elit. Sed elementum lectus ipsum, vulputate elementum ex laoreet a. Aenean eu ex varius, varius felis vitae, efficitur nulla. Quisque pretium laoreet ante, in sodales dui vehicula at. Mauris eu sem sapien.
         </p>
@@ -69,8 +75,8 @@
         var targetDiv = 'map';
 
         var options = {
-            center: [0, 0],
-            zoom: 2
+            center: [51.24, 19.41],
+            zoom: 7
         }
         map = L.map(targetDiv, options);
         var tiles = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
@@ -78,23 +84,24 @@
 });
         map.addLayer(tiles);
         
-        // begin writing/editing Lab 04 code here
-        
+        var cities = ["Warsaw", "Krakow", "Wroclaw"];
+        var cityCoords = [[52.2297, 21.0122],[50.4, 19.56],[51.6, 17.2]];
+        var cityPops = [1740119,761900,634487];
+        var cityCapital = [true, false, false];
+       for(var i = 0; i < 3; i++) { console.log(cities[i]); console.log(cityPops[i]); console.log(cityCoords[i]);} 
+            
+           var popup = "<b>"+cities[i]+"</b><br>"
+                            +"<b>cityPops[i]</b>: "+cityCapital[i];
 
-//        for(/* add code here */) {
-//            
-//            var popup = "<b>"+/* add code here */+"</b><br>"
-//                            +"<b>population</b>: "+/* add code here */;
-//
-//            if(/* add code here */) {
-//               
-//                popup += "<br>Is the capital city."; 
-//                
-//            } 
-//            
-//            L.marker(/* add code here */).addTo(map)
-//                .bindPopup(popup);
-//        }
+           if(cityCapital == true) {
+               
+               popup += "<br>Is the capital city."; 
+               
+            } 
+           
+          L.marker([cityCoords[i]] ).addTo(map)
+               .bindPopup(popup);
+       
         
         // end writing/editing Lab 04 code here
         
