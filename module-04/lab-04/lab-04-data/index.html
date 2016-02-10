@@ -57,8 +57,8 @@
 
 <body>
     <header>
-        <p><h1>Miast w Polsce</h1></p>
-    <p><h2>Cities in Poland</h2></p>
+        <h1>Miast w Polsce</h1> <!-- don't need to wrapper header elements in paragraph tags -->
+        <h2>Cities in Poland</h2>
     </header>
 
     <div id='map'></div>
@@ -80,18 +80,24 @@
         }
         map = L.map(targetDiv, options);
         var tiles = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
-});
+            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
+        });
         map.addLayer(tiles);
         
         var cities = ["Warsaw", "Krakow", "Wroclaw"];
         var cityCoords = [[52.2297, 21.0122],[50.4, 19.56],[51.6, 17.2]];
         var cityPops = [1740119,761900,634487];
         var cityCapital = [true, false, false];
-       for(var i = 0; i < 3; i++) { console.log(cities[i]); console.log(cityPops[i]); console.log(cityCoords[i]);} 
+        
+        for(var i = 0; i < 3; i++) { 
+           console.log(cities[i]); 
+           console.log(cityPops[i]); 
+           console.log(cityCoords[i]);
+      
+       //} // this was ending your for loop here, but it needs to end below to include those other statements
             
            var popup = "<b>"+cities[i]+"</b><br>"
-                            +"<b>cityPops[i]</b>: "+cityCapital[i];
+                            +"<b>cityPops[i]</b>: "+cityCapital[i];  // something still needs to be fixed here
 
            if(cityCapital == true) {
                
@@ -99,11 +105,12 @@
                
             } 
            
-          L.marker([cityCoords[i]] ).addTo(map)
+          L.marker(cityCoords[i]).addTo(map)  // you were wrapping cityCoords[i] within square brackets here. why?
                .bindPopup(popup);
        
         
-        // end writing/editing Lab 04 code here
+       } // end for loop here
+        
         
           
     </script>
