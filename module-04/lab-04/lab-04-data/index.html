@@ -65,7 +65,7 @@
 
     <footer>
         <p>Mark Avery</p>
-        <p>Additional information about the data and map goes here.</p>
+        <p>Facts provided by Wikipedia.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl. Vestibulum commodo imperdiet lacus, sed facilisis erat placerat sit amet. Nulla consequat malesuada neque eget aliquet. Integer non convallis nisl, gravida ultrices ex. Fusce nec vestibulum elit. Sed elementum lectus ipsum, vulputate elementum ex laoreet a. Aenean eu ex varius, varius felis vitae, efficitur nulla. Quisque pretium laoreet ante, in sodales dui vehicula at. Mauris eu sem sapien.
         </p>
     </footer>
@@ -84,24 +84,24 @@
 });
         map.addLayer(tiles);
         
-        var cities = ["Warsaw", "Krakow", "Wroclaw"];
-        var cityCoords = [[52.2297, 21.0122],[50.4, 19.56],[51.6, 17.2]];
+       // begin writing/editing Lab 04 code here
+         var cities = ["Warsaw", "Krakow", "Wroclaw"];
+        var cityCoords = [[52.2297, 21.0122],[50.0614, 19.9383],[51.1000, 17.0333]];
         var cityPops = [1740119,761900,634487];
         var cityCapital = [true, false, false];
-       for(var i = 0; i < 3; i++) { console.log(cities[i]); console.log(cityPops[i]); console.log(cityCoords[i]);} 
+       for(var i = 0; i <= 2; i++) { console.log(cities[i]); console.log(cityPops[i]); console.log(cityCoords[i]); 
             
-           var popup = "<b>"+cities[i]+"</b><br>"
-                            +"<b>cityPops[i]</b>: "+cityCapital[i];
-
-           if(cityCapital == true) {
+        var city1Popup = "<b>"+cities[i]+"</b><br>"
+                        +"<b>City-Population</b>: "+cityPops[i];
+         if(cityCapital[i] == true) {
                
-               popup += "<br>Is the capital city."; 
-               
+               city1Popup += "<br>Is the capital city."; 
+              
             } 
-           
-          L.marker([cityCoords[i]] ).addTo(map)
-               .bindPopup(popup);
-       
+            
+           L.marker(cityCoords[i]).addTo(map)
+               .bindPopup(city1Popup);
+       }
         
         // end writing/editing Lab 04 code here
         
