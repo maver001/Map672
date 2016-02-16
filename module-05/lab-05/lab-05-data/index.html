@@ -117,12 +117,14 @@
                 for (var i = 0; i < cities.length; i++) {
 
                     var density = calcPopDensity(cityPops, cityAreas, units)
-                    return density;
+
+
+
 
 
 
                     var popup = "<b>" + cities[i] + "</b><br>"
-                    "<b>Density</b>: " + density.toLocaleString() + " people per sq " + units;
+                    "<b>Density</b>: " + density.toLocaleString() + " people per sq + units ";
 
                     L.marker(cityCoords[i]).addTo(map)
                         .bindPopup(popup);
@@ -130,11 +132,10 @@
                 }
             }
 
-            function calcPopDensity() {
+            function calcPopDensity(cityPops, cityAreas, units) {
                 (cityPops / cityAreas) + "SqMile"
             }
         }
-        prepareData();
 
     </script>
 
