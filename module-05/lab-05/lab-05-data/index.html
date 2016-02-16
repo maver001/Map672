@@ -19,33 +19,38 @@
             font-family: Lato, sans-serif;
             color: #0D0000;
         }
+        
         header {
             padding: 6px 10%;
         }
+        
         h1 {
             display: inline-block;
             margin-right: 20px;
             color: #001323;
         }
+        
         h2 {
             display: inline-block;
             color: #001323;
         }
+        
         #map {
             width: 80%;
             height: 540px;
             margin: 10px auto;
         }
+        
         footer {
             padding: 6px 10%;
             width: 80%;
         }
+        
         p {
             font-size: 1em;
             color: #001323;
         }
         /* Additional style rules go here! */
-        
 
     </style>
 </head>
@@ -65,76 +70,74 @@
         </p>
     </footer>
 
-<script>
-    
-    var options = {
-        center: [38.0489,-84.5025],
-        zoom: 8
-    }
-    
-    var map = L.map('map', options);
-    
-    var tiles = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-        subdomains: 'abcd',
-        maxZoom: 19
-    });
-    map.addLayer(tiles);
-
-    // begin writing/editing Lab 05 code here
-
-    var lexArea = Number(prompt("Enter data", "Enter the area of Lexington in square miles"));
-    // create a second variable to collect a second city's area here
-    // create a third variable to collect a third city's area here
-
-    prepareData(lexArea); // modify this function call to pass all three variables
-
-    function prepareData(lexArea) { /* modify function to include 2 more parameters */
-
-        var cities = ["Lexington"]; /* add 2nd and 3rd city names */
-        var cityCoords = [
-            [38.0297, -84.4947] 
-            /* include 2nd city lat/lon here */
-            /* include 3rd city lat/lon here */
-
-        ];
-        var cityPops = [308428]; /* include 2nd and 3rd city pops here */
-
-        var cityAreas = [lexArea]; /* include 2nd and 3rd city areas */
-
-       // call the mapCities function, passing the 4 arrays created above as arguments
-
-    }
-
-    function mapCities(cities, cityCoords) { /* include 2 more parameters here */
-
-        var units = prompt('Units for calculating density', 'Enter "miles" or "km"');
-
-        for(var i = 0; i < cities.length; i++) {
-
-            /*var density =  call a function named calcPopDensity here, passing
-                             the city population, area, and units as arguments, and assign
-                             return value to the "density" variable */
-
-            var popup = "<b>"+cities[i]+"</b><br>"
-                            //+"<b>Density</b>: "+density.toLocaleString()+" people per sq " + units;
-
-            L.marker(cityCoords[i]).addTo(map)
-                .bindPopup(popup);
-
+    <script>
+        var options = {
+            center: [38.0489, -84.5025],
+            zoom: 8
         }
-    }
 
-    // write a function named calcPopDensity which accepts three arguments, the  
-    // population, the area of a single city, and the units ('miles' or 'km') entered by
-    // the user above. The function should calculate the density of the city with these two 
-    // values and return the result to where the function was called.
+        var map = L.map('map', options);
+
+        var tiles = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        });
+        map.addLayer(tiles);
+
+        var lexArea = Number(prompt("Enter data", "Enter the area of Lexington in square miles"));
+        var louArea = Number(prompt("Enter data", "Enter the area of Louisville in square miles"));
+        var frankArea = Number(prompt("Enter data", "Enter the area of frankfort in square miles"));
+
+        prepareData(lexArea, louArea, frankArea); // modify this function call to pass all three variables
+
+        function prepareData(lexArea, louArea, frankArea) {
+
+            var cities = ["Lexington", "Lousiville", "Frankfort"];
+            var cityCoords = [
+                [38.0297, -84.4947],
+                [38.25, -85.7667],
+                [38.197, -84.8630]
 
 
-    // end writing/editing Lab 05 code here
 
-</script>
-    
+            ];
+            var cityPops = [308428, 760026, 25527];
+
+            var cityAreas = [lexArea, louArea, frankArea];
+
+            mapCities(cities, cityCoords, cityPops, cityAreas)
+
+
+
+            function mapCities(cities, cityCoords, cityPops, cityAreas) {
+
+                var units = prompt('Units for calculating density', 'Enter "miles" or "km"');
+
+                for (var i = 0; i < cities.length; i++) {
+
+                    var density = calcPopDensity(cityPops, cityAreas, units)
+                    return density;
+
+
+
+                    var popup = "<b>" + cities[i] + "</b><br>"
+                    "<b>Density</b>: " + density.toLocaleString() + " people per sq " + units;
+
+                    L.marker(cityCoords[i]).addTo(map)
+                        .bindPopup(popup);
+
+                }
+            }
+
+            function calcPopDensity() {
+                (cityPops / cityAreas) + "SqMile"
+            }
+        }
+        prepareData();
+
+    </script>
+
 </body>
 
 </html>
