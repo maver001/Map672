@@ -18,6 +18,7 @@
             background: whitesmoke;
             font-family: Lato, sans-serif;
             color: #0D0000;
+            text-align: center
         }
         
         header {
@@ -28,11 +29,13 @@
             display: inline-block;
             margin-right: 20px;
             color: #001323;
+            font-weight: bolder
         }
         
         h2 {
             display: inline-block;
             color: #001323;
+            font-weight: bold
         }
         
         #map {
@@ -57,17 +60,16 @@
 
 <body>
     <header>
-        <h1>Map Title</h1>
-        <h2>Map Subtitle</h2>
+        <h1>Kentucky Home</h1>
+        <h2>The Cities</h2>
     </header>
 
     <div id='map'></div>
 
     <footer>
-        <p>Map authored by YOUR NAME</p>
+        <p>Map by Mark Avery</p>
         <p>Additional information about the data and map goes here.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl. Vestibulum commodo imperdiet lacus, sed facilisis erat placerat sit amet. Nulla consequat malesuada neque eget aliquet. Integer non convallis nisl, gravida ultrices ex. Fusce nec vestibulum elit. Sed elementum lectus ipsum, vulputate elementum ex laoreet a. Aenean eu ex varius, varius felis vitae, efficitur nulla. Quisque pretium laoreet ante, in sodales dui vehicula at. Mauris eu sem sapien.
-        </p>
+
     </footer>
 
     <script>
@@ -89,51 +91,52 @@
         var louArea = Number(prompt("Enter data", "Enter the area of Louisville in square miles"));
         var frankArea = Number(prompt("Enter data", "Enter the area of frankfort in square miles"));
 
-        prepareData(lexArea, louArea, frankArea); // modify this function call to pass all three variables
+        var cities = ["Lexington", "Louisville", "Frankfort"];
+        var cityCoords = [
+            [38.0297, -84.4947],
+            [38.25, -85.7667],
+            [38.1970, -84.8630]
+        ];
+        var cityPops = [308428, 756832, 25527];
+        var cityCapitol = [false, false, true];
+        var cityAreas = [286, 399, 15];
+        var units = ["miles", "miles", "miles"];
+        var popDensity = [(308428 / 286), (756832 / 399), (25527 / 15)];
+        //console.log(popDensity);
+        //function cityDensity(message)
 
-        function prepareData(lexArea, louArea, frankArea) {
-
-            var cities = ["Lexington", "Lousiville", "Frankfort"];
-            var cityCoords = [
-                [38.0297, -84.4947],
-                [38.25, -85.7667],
-                [38.197, -84.8630]
-
-
-
-            ];
-            var cityPops = [308428, 760026, 25527];
-
-            var cityAreas = [lexArea, louArea, frankArea];
-
-            mapCities(cities, cityCoords, cityPops, cityAreas)
-
-
-
-            function mapCities(cities, cityCoords, cityPops, cityAreas) {
-
-                var units = prompt('Units for calculating density', 'Enter "miles" or "km"');
-
-                for (var i = 0; i < cities.length; i++) {
-
-                    var density = calcPopDensity(cityPops, cityAreas, units)
+        var peter = ["paul", "paul", "paul"];
+        var dogs = ["brutes", "littleo", "corky"];
+        var density = cityPops / cityAreas;
+        console.log(popDensity);
+        var unit = prompt('Units for calculating density', 'Enter "miles" or "km"');
 
 
 
+        for (var i = 0; i < cities.length; i++) {
 
-
-
-                    var popup = "<b>" + cities[i] + "</b><br>"
-                    "<b>Density</b>: " + density.toLocaleString() + " people per sq + units ";
-
-                    L.marker(cityCoords[i]).addTo(map)
-                        .bindPopup(popup);
-
-                }
+            function cityDensity(message) {
+                console.log(message);
             }
 
-            function calcPopDensity(cityPops, cityAreas, units) {
-                (cityPops / cityAreas) + "SqMile"
+
+            cityDensity(message);
+
+            var message = (cityPops[i] / cityAreas[i]); {
+
+                var popup = "<b>" + cities[i] + "</b><br>" + "<b>population</b>: " + cityPops[i];
+
+                if (cityCapitol[i] == true) {
+
+                    popup += "<br>Capitol of the Commonwealth of Kentucky";
+
+                }
+                if (units[i] === "miles") {
+                    popup += "<br>People Per Sq Mile";
+                }
+                popup += popDensity[i];
+                L.marker(cityCoords[i]).addTo(map)
+                    .bindPopup(popup);
             }
         }
 
